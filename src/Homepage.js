@@ -3,19 +3,22 @@ import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
-export default function Homepage() {
+export default function Homepage(props) {
+    const { navigate } = props
     const images = [
         {
             url: '/EnterNew.jpg',
             title: 'Log a New Blood Pressure',
-            width: '36rem',
+            maxWidth: '50vw',
+            width: '40vw',
             marginBottom: '20px',
 
         },
         {
             url: '/SeeResults.jpg',
             title: 'See My Results',
-            width: '36rem',
+            maxWidth: '50vw',
+            width: '40vw',
 
         },
     ];
@@ -25,7 +28,7 @@ export default function Homepage() {
         height: 200,
         marginBottom: '20px',
         [theme.breakpoints.down('sm')]: {
-            width: '100% !important', // Overrides inline-style
+            width: '70vw !important', // Overrides inline-style
             height: 100,
         },
         '&:hover, &.Mui-focusVisible': {
@@ -88,9 +91,9 @@ export default function Homepage() {
 
     return (
         <>
-            <h1 style={{textAlign:"center"}}>My Blood Pressure Tracker</h1>
+            <h1 style={{ textAlign: "center" }}>My Blood Pressure Tracker</h1>
 
-            <Box className='box' sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', maxWidth: '100vw', width: '100%', mt: '80px', alignItems:'center' }}>
+            <Box className='box' sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', maxWidth: '100vw', width: '100%', mt: '80px', alignItems: 'center' }}>
                 {images.map((image) => (
                     <ImageButton
                         focusRipple
@@ -98,7 +101,7 @@ export default function Homepage() {
                         style={{
                             width: image.width,
                         }}
-                        onClick={() => {alert("clicked")}}
+                        onClick={() => { navigate("/newreading") }}
                     >
                         <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                         <ImageBackdrop className="MuiImageBackdrop-root" />
