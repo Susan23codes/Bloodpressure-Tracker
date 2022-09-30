@@ -1,3 +1,52 @@
 .box {
   /* border: 2px solid; */
 }
+
+.form-controls, .form-submit, .new-reading-text {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+}
+
+.new-reading-form {
+  margin-top: 4rem;
+  border: 2px solid;
+  margin: 4rem 8rem 0 8rem;
+  background-color: rgb(164, 156, 170);
+}
+
+.new-reading-text {
+  font-size:2rem;
+}
+
+.form-controls {
+  font-size: 2rem;
+}
+
+.date-picker {
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 20vw;
+  margin-bottom: 2rem;
+  width: 40vw;
+}
+
+.react-datepicker {
+  margin-left: 25vw
+}
+
+#submit {
+  border-radius: 3px;
+  font-size: 2rem;
+}
+
+#systolic-field, #diastolic-field {
+  font-size: 2rem
+}
+
+@media only screen and (max-width: 430px) {
+  .react-datepicker {
+    margin-left: 13vw;
+    width: 75vw;
+  }
+}

@@ -1,6 +1,7 @@
 import './App.css';
 import { Routes, Route, useNavigate, BrowserRouter as Router } from 'react-router-dom'
 import Homepage from './Homepage';
+import NewReading from './NewReading';
 
 function App() {
 
@@ -16,11 +17,11 @@ function App() {
             navigate={navigate}
           />}
         />
-        {/* <Route
+        <Route
           path="/newreading"
           element={<NewReading
           />}
-          /> */}
+          />
 
       </Routes>
 
