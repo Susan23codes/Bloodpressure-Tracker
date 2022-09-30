@@ -1,9 +1,29 @@
 import './App.css';
+import { Routes, Route, useNavigate, BrowserRouter as Router } from 'react-router-dom'
+import Homepage from './Homepage';
 
 function App() {
+
+  const navigate = useNavigate()
+
+
   return (
     <div className="App">
-      Hello!
+      <Routes>
+        <Route
+          path="/"
+          element={<Homepage
+            navigate={navigate}
+          />}
+        />
+        {/* <Route
+          path="/newreading"
+          element={<NewReading
+          />}
+          /> */}
+
+      </Routes>
+
     </div>
   );
 }
