@@ -32,6 +32,7 @@ export default function NewReading() {
                     <label htmlFor="diastolic-field">Diastolic (lower number)&ensp;</label>
                     <input id="diastolic-field" type="text" onChange={(e) => setDiastolic(e.target.value)} />
                 </div>
+                <p className="form-controls">Enter a date and time OR use current:</p>
                 <DatePicker
       selected={date}
       onChange={(date) => setDate(date)}
