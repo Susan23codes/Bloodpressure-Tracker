@@ -1,7 +1,9 @@
 import './App.css';
 import { Routes, Route, useNavigate, BrowserRouter as Router } from 'react-router-dom'
 import Homepage from './Homepage';
+import Navbar from './Navbar';
 import NewReading from './NewReading';
+import Results from './Results';
 
 function App() {
 
@@ -10,6 +12,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar />
       <Routes>
         <Route
           path="/"
@@ -21,8 +24,12 @@ function App() {
           path="/newreading"
           element={<NewReading
           />}
-          />
-
+        />
+        <Route
+          path="/results"
+          element={<Results
+          />}
+        />
       </Routes>
 
     </div>

@@ -4,7 +4,10 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 
 export default function Homepage(props) {
+
     const { navigate } = props
+
+
     const images = [
         {
             url: '/EnterNew.jpg',
@@ -23,9 +26,10 @@ export default function Homepage(props) {
         },
     ];
 
+
     const ImageButton = styled(ButtonBase)(({ theme }) => ({
         position: 'relative',
-        height: 200,
+        height: 250,
         marginBottom: '20px',
         [theme.breakpoints.down('sm')]: {
             width: '70vw !important', // Overrides inline-style
@@ -44,6 +48,7 @@ export default function Homepage(props) {
             },
 
         },
+
     }));
 
     const ImageSrc = styled('span')({
@@ -91,7 +96,7 @@ export default function Homepage(props) {
 
     return (
         <>
-            <h1 style={{ textAlign: "center" }}>My Blood Pressure Tracker</h1>
+            {/* <h1 style={{ textAlign: "center" }}>My Blood Pressure Tracker</h1> */}
 
             <Box className='box' sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', maxWidth: '100vw', width: '100%', mt: '80px', alignItems: 'center' }}>
                 {images.map((image) => (
@@ -101,7 +106,15 @@ export default function Homepage(props) {
                         style={{
                             width: image.width,
                         }}
-                        onClick={() => { navigate("/newreading") }}
+                        onClick={() => {
+                            if (image.title === "Log a New Blood Pressure") {
+                                navigate("/newreading")
+                            }
+                            else {
+                                navigate("/results")
+                            }
+                        }
+                        }
                     >
                         <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
                         <ImageBackdrop className="MuiImageBackdrop-root" />

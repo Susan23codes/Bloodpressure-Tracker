@@ -1,22 +1,46 @@
 .box {
   /* border: 2px solid; */
 }
+.navbar{
+  /* height: 20vh; */
+  background-color: rgb(69, 118, 175);
+} 
+
+.navbar-title {
+  text-align: center;
+  padding-top: 2rem;
+  color: white;
+}
+
+.navbar-buttons {
+  display: flex;
+  font-size: 1.5rem;
+  color: white;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}
+
+.home-logout-buttons {
+  display: flex;
+  /* border: 2px solid; */
+  width: 40vw;
+  justify-content: flex-end;
+}
 
 .form-controls, .form-submit, .new-reading-text {
   text-align: center;
-  margin-bottom: 3rem;
-  
+  margin-bottom: 2rem;
+  color:rgb(78, 80, 80)
+
 }
 
 .new-reading-form {
   margin-top: 4rem;
-  border: 2px solid;
-  margin: 4rem 8rem 0 8rem;
-  background-color: rgb(164, 156, 170);
 }
 
 .new-reading-text {
   font-size:2rem;
+  color:rgb(44, 57, 57)
 }
 
 .form-controls {
@@ -24,29 +48,58 @@
 }
 
 .date-picker {
-  font-size: 2rem;
+  font-size: 1.25rem;
   text-align: center;
-  margin-left: 20vw;
-  margin-bottom: 2rem;
+  margin-left: 30vw;
+  margin-bottom: 1rem;
   width: 40vw;
+  
 }
 
 .react-datepicker {
-  margin-left: 25vw
+  margin-left: 25vw;
 }
 
 #submit {
   border-radius: 3px;
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 #systolic-field, #diastolic-field {
-  font-size: 2rem
+  font-size: 1rem
 }
 
-@media only screen and (max-width: 430px) {
-  .react-datepicker {
+@media only screen and (max-width: 550px) {
+  .date-picker {
+    margin-left: 29vw;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 40vw;
+    font-size: 2rem;
+  }
+
+  .new-reading-text {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+    font-size: 4rem;
+  }
+
+  #systolic-field, #diastolic-field {
+    font-size: 2rem
+  }
+
+  .form-controls {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 915px) and (min-width: 551px) {
+  .date-picker {
     margin-left: 13vw;
-    width: 75vw;
+    width: 65vw;
+    font-size: 2rem;
   }
 }
