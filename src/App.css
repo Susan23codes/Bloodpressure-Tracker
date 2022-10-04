@@ -1,10 +1,21 @@
 .box {
   /* border: 2px solid; */
 }
+
 .navbar{
   /* height: 20vh; */
   background-color: rgb(69, 118, 175);
 } 
+
+.entire-login-form{
+  text-align: center;
+  border: 2px solid rgb(69, 118, 175);;
+  width: 40vw;
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 2px;
+  background-color: rgb(231, 231, 231);
+}
 
 .navbar-title {
   text-align: center;
@@ -65,16 +76,33 @@
   font-size: 1.25rem;
 }
 
-#systolic-field, #diastolic-field {
+#systolic-field, #diastolic-field, #username-field, #password {
   font-size: 1rem
 }
 
 @media only screen and (max-width: 550px) {
+
+  .entire-login-form{
+    text-align: center;
+    border: 2px solid;
+    width: 60vw;
+    margin: auto;
+    margin-top: 3rem;
+  }
+
+  .navbar-buttons {
+    font-size: 2rem;
+  }
+
+  .navbar-title {
+    font-size: 2.5rem;
+  }
+
   .date-picker {
     margin-left: 29vw;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    width: 40vw;
+    width: 42vw;
     font-size: 2rem;
   }
 
@@ -87,13 +115,18 @@
     font-size: 4rem;
   }
 
-  #systolic-field, #diastolic-field {
+  #systolic-field, #diastolic-field, #username-field, #password {
     font-size: 2rem
   }
 
   .form-controls {
     font-size: 4rem;
   }
+
+  .react-datepicker {
+    font-size: 1rem;
+  }
+
 }
 
 @media only screen and (max-width: 915px) and (min-width: 551px) {
@@ -102,4 +135,5 @@
     width: 65vw;
     font-size: 2rem;
   }
+
 }

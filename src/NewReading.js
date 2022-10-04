@@ -42,6 +42,7 @@ export default function NewReading() {
       timeCaption="time"
       dateFormat="MMMM d, yyyy h:mm aa"
       className='date-picker'
+    
     />
                 <div className="form-submit">
                     <input id="submit" type="submit" value="Submit" />
