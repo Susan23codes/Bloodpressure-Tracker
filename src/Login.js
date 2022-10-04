@@ -14,7 +14,7 @@ export default function Login(props) {
             e.preventDefault()
             setError(null)
             
-            axios.post('http://127.0.0.1:8000/auth/token/login', {
+            axios.post('http://127.0.0.1:8000/auth/token/login/', {
                 username: username,
                 password: password,
             },
@@ -49,7 +49,7 @@ export default function Login(props) {
                         <input style={{color:"white", backgroundColor:"rgb(69, 118, 175)"}} id="submit" type="submit" value="Log In" />
                     </div>
                 </form>
-                <p>Don't have an account?  Click <Link to={'/registration'}>here</Link> to register.</p>
+                <p>Don't have an account?  Click <Link to={'/register'}>here</Link> to register.</p>
             </div>
 
         </>

@@ -7,7 +7,7 @@
   background-color: rgb(69, 118, 175);
 } 
 
-.entire-login-form{
+.entire-login-form, #registration-form{
   text-align: center;
   border: 2px solid rgb(69, 118, 175);;
   width: 40vw;
@@ -76,11 +76,19 @@
   font-size: 1.25rem;
 }
 
-#systolic-field, #diastolic-field, #username-field, #password {
+#systolic-field, #diastolic-field, #username-field, #password, #confirm-password {
   font-size: 1rem
 }
 
+#username-field {
+  margin-top: 2rem;
+}
+
 @media only screen and (max-width: 550px) {
+
+  .entire-login-form, #registration-form{
+    margin-top: 7rem;
+  }
 
   .entire-login-form{
     text-align: center;
@@ -136,4 +144,7 @@
     font-size: 2rem;
   }
 
+  .entire-login-form, #registration-form{
+    margin-top: 7rem;
+  }
 }

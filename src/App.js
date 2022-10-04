@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import NewReading from './NewReading';
 import Results from './Results';
 import Login from './Login';
+import Registration from './Registration';
 
 function App() {
   const [token, setToken] = useLocalStorageState('bloodpressureToken', null)
@@ -37,7 +38,18 @@ function App() {
               username={username}
               setUsername={setUsername}
             />}
-          />}
+          />
+          }
+          <Route
+            path="/register"
+            element={<Registration
+              setAuth={setAuth}
+              isLoggedIn={isLoggedIn}
+              navigate={navigate}
+              username={username}
+              setUsername={setUsername}
+            />}
+          />
         <Route
           path="/"
           element={<Homepage
