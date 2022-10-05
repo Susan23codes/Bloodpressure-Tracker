@@ -5,6 +5,7 @@
 .navbar{
   /* height: 20vh; */
   background-color: rgb(69, 118, 175);
+  padding-bottom: 2rem;
 } 
 
 .entire-login-form, #registration-form{
@@ -21,6 +22,7 @@
   text-align: center;
   padding-top: 2rem;
   color: white;
+  margin-top: 0;
 }
 
 .navbar-buttons {
@@ -103,7 +105,7 @@
   }
 
   .navbar-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
 
   .date-picker {
@@ -146,5 +148,9 @@
 
   .entire-login-form, #registration-form{
     margin-top: 7rem;
+  }
+
+  .navbar-title {
+    font-size: 3rem;
   }
 }

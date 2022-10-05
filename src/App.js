@@ -59,6 +59,8 @@ function App() {
         <Route
           path="/newreading"
           element={<NewReading
+            token={token}
+            navigate={navigate}
           />}
         />
         <Route
