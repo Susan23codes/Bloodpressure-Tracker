@@ -1,20 +1,49 @@
 import React, { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment'
+import axios from "axios"
+import { Navigate } from 'react-router-dom';
 
 
 
 
-export default function NewReading() {
+export default function NewReading(props) {
+    const {token, navigate} = props
+
     const [systolic, setSystolic] = useState('')
     const [diastolic, setDiastolic] = useState('')
-    const [date, setDate] = useState(new Date())
+    const [readingTime, setReading_time] = useState(new Date())
+    const [error, setError] = useState(null)
 
     function handleSubmit(event) {
         event.preventDefault()
         console.log(systolic)
         console.log(diastolic)
-        console.log(date)
+        console.log(moment(readingTime).format('YYYY-MM-DDTHH:mm:ss.sssZ'))
+
+        setError(null)
+        axios.post('http://127.0.0.1:8000/api/reading/',
+            { systolic: systolic,
+              diastolic: diastolic,
+              reading_time: readingTime,
+             },
+            {
+                headers: {
+                    Authorization: `Token ${token}`
+                },
+            })
+            .then((res) => {
+                alert("Thank you for your answer!")
+                setSystolic('')
+                setDiastolic('')
+                // navigate('/')
+                ;
+
+            })
+            .catch((error) => {
+                setError(error.message)
+            })
 
     }
 
@@ -34,14 +63,15 @@ export default function NewReading() {
                 </div>
                 <p className="form-controls">Enter a date and time OR use current:</p>
                 <DatePicker
-      selected={date}
-      onChange={(date) => setDate(date)}
+      selected={readingTime}
+      onChange={(date) => setReading_time(readingTime)}
       showTimeSelect
       timeFormat="HH:mm"
       timeIntervals={15}
       timeCaption="time"
       dateFormat="MMMM d, yyyy h:mm aa"
       className='date-picker'
+    
     />
                 <div className="form-submit">
                     <input id="submit" type="submit" value="Submit" />

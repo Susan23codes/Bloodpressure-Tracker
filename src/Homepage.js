@@ -2,6 +2,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
+import { fontSize } from '@mui/system';
 
 export default function Homepage(props) {
 
@@ -96,8 +97,6 @@ export default function Homepage(props) {
 
     return (
         <>
-            {/* <h1 style={{ textAlign: "center" }}>My Blood Pressure Tracker</h1> */}
-
             <Box className='box' sx={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'column', maxWidth: '100vw', width: '100%', mt: '80px', alignItems: 'center' }}>
                 {images.map((image) => (
                     <ImageButton
@@ -121,14 +120,16 @@ export default function Homepage(props) {
                         <Image>
                             <Typography
                                 component="span"
-                                variant="subtitle1"
+                                variant="h6"
                                 color="inherit"
                                 sx={{
                                     position: 'relative',
                                     p: 4,
                                     pt: 2,
-
                                     pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
+                                    '@media (max-width:915px)': {
+                                        fontSize: '3rem',
+                                      },
                                 }}
                             >
                                 {image.title}
@@ -138,7 +139,6 @@ export default function Homepage(props) {
                     </ImageButton>
                 ))}
             </Box>
-
         </>
     )
 }

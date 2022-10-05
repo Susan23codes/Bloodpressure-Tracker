@@ -1,15 +1,28 @@
 .box {
   /* border: 2px solid; */
 }
+
 .navbar{
   /* height: 20vh; */
   background-color: rgb(69, 118, 175);
+  padding-bottom: 2rem;
 } 
+
+.entire-login-form, #registration-form{
+  text-align: center;
+  border: 2px solid rgb(69, 118, 175);;
+  width: 40vw;
+  margin: auto;
+  margin-top: 3rem;
+  border-radius: 2px;
+  background-color: rgb(231, 231, 231);
+}
 
 .navbar-title {
   text-align: center;
   padding-top: 2rem;
   color: white;
+  margin-top: 0;
 }
 
 .navbar-buttons {
@@ -65,16 +78,41 @@
   font-size: 1.25rem;
 }
 
-#systolic-field, #diastolic-field {
+#systolic-field, #diastolic-field, #username-field, #password, #confirm-password {
   font-size: 1rem
 }
 
+#username-field {
+  margin-top: 2rem;
+}
+
 @media only screen and (max-width: 550px) {
+
+  .entire-login-form, #registration-form{
+    margin-top: 7rem;
+  }
+
+  .entire-login-form{
+    text-align: center;
+    border: 2px solid;
+    width: 60vw;
+    margin: auto;
+    margin-top: 3rem;
+  }
+
+  .navbar-buttons {
+    font-size: 2rem;
+  }
+
+  .navbar-title {
+    font-size: 3rem;
+  }
+
   .date-picker {
     margin-left: 29vw;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    width: 40vw;
+    width: 42vw;
     font-size: 2rem;
   }
 
@@ -87,13 +125,18 @@
     font-size: 4rem;
   }
 
-  #systolic-field, #diastolic-field {
+  #systolic-field, #diastolic-field, #username-field, #password {
     font-size: 2rem
   }
 
   .form-controls {
     font-size: 4rem;
   }
+
+  .react-datepicker {
+    font-size: 1rem;
+  }
+
 }
 
 @media only screen and (max-width: 915px) and (min-width: 551px) {
@@ -101,5 +144,13 @@
     margin-left: 13vw;
     width: 65vw;
     font-size: 2rem;
+  }
+
+  .entire-login-form, #registration-form{
+    margin-top: 7rem;
+  }
+
+  .navbar-title {
+    font-size: 3rem;
   }
 }
