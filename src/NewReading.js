@@ -64,7 +64,7 @@ export default function NewReading(props) {
                 <p className="form-controls">Enter a date and time OR use current:</p>
                 <DatePicker
       selected={readingTime}
-      onChange={(date) => setReading_time(readingTime)}
+      onChange={(readingTime) => setReading_time(readingTime)}
       showTimeSelect
       timeFormat="HH:mm"
       timeIntervals={15}

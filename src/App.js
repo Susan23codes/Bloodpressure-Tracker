@@ -66,6 +66,7 @@ function App() {
         <Route
           path="/results"
           element={<Results
+            token={token}
           />}
         />
       </Routes>

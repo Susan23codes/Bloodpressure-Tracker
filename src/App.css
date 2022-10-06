@@ -86,6 +86,22 @@
   margin-top: 2rem;
 }
 
+.bar-chart {
+  width: 70%;
+  min-height: 300px;
+  max-height: 400px;
+  /* margin-left: 2rem; */
+  margin: auto;
+}
+
+.line-chart {
+  width: 70%;
+  /* margin-left: 2rem; */
+  min-height: 300px;
+  max-height: 400px;
+  margin: auto;
+}
+
 @media only screen and (max-width: 550px) {
 
   .entire-login-form, #registration-form{
@@ -135,6 +151,12 @@
 
   .react-datepicker {
     font-size: 1rem;
+  }
+
+  .bar-chart, .line-chart {
+    width: 90%;
+    min-height: 300px;
+    margin-left: 2rem;
   }
 
 }
