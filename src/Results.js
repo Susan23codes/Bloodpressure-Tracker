@@ -1,5 +1,6 @@
 import axios from "axios"
 import moment from 'moment'
+import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import {
     Chart as ChartJS,
@@ -68,7 +69,7 @@ export default function Results(props) {
             },
             title: {
                 display: true,
-                text: 'Chart.js Line Chart',
+                text: 'Latest Readings',
             },
         },
     };
@@ -89,7 +90,7 @@ export default function Results(props) {
     }, [])
 
     const data = {
-        labels: resultsList && resultsList.slice(0, 7).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  HH:MM')),
+        labels: resultsList && resultsList.slice(0, 10).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:MM)')),
         datasets: [
             {
                 label: 'Systolic',
@@ -105,12 +106,12 @@ export default function Results(props) {
     };
 
     const lineData = {
-        labels: resultsList && resultsList.map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  HH:MM')),
+        labels: resultsList && resultsList.slice(0, 15).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:MM)')),
         datasets: [
             {
                 label: 'Systolic',
                 data: resultsList && resultsList.map((resultObject) => resultObject.systolic),
-                borderColor: 'rgb(255, 99, 132)',  
+                borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
@@ -122,21 +123,14 @@ export default function Results(props) {
         ],
     };
 
-    // const dataAverage = resultsList && resultsList.filter((resultObject) =>
-    //      moment(resultObject.reading_time).format('MM') === 10)
-    //      console.log(dataAverage)
-
 
 
     return (
         <>
-            {/* {resultsList &&
-        resultsList.slice(0,7).map((resultObject, index) => {
-            return resultObject.systolic
-            
-        })} */}
+        <div className="bar-and-readings">
             <div className="bar-chart">
                 <Bar options={options} data={data} />
+            </div>
             </div>
             <div className="line-chart">
                 <Line options={lineOptions} data={lineData} />

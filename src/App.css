@@ -1,5 +1,6 @@
 .box {
   /* border: 2px solid; */
+  margin-top: 40px !important
 }
 
 .navbar{
@@ -8,9 +9,9 @@
   padding-bottom: 2rem;
 } 
 
-.entire-login-form, #registration-form{
+.entire-login-form, #registration-form {
   text-align: center;
-  border: 2px solid rgb(69, 118, 175);;
+  border: 1px solid rgb(69, 118, 175);;
   width: 40vw;
   margin: auto;
   margin-top: 3rem;
@@ -27,10 +28,11 @@
 
 .navbar-buttons {
   display: flex;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: white;
-  justify-content: space-around;
-  padding-bottom: 1rem;
+  justify-content: space-between;
+  margin: 0 3rem 0 3rem
+  /* padding-bottom: 1rem; */
 }
 
 .home-logout-buttons {
@@ -38,6 +40,14 @@
   /* border: 2px solid; */
   width: 40vw;
   justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.results-buttons {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid; */
+  align-items:flex-start
 }
 
 .form-controls, .form-submit, .new-reading-text {
@@ -49,6 +59,12 @@
 
 .new-reading-form {
   margin-top: 4rem;
+  border: 1px solid rgb(69, 118, 175);
+  width: 50vw;
+  margin: auto;
+  background-color: rgb(231, 231, 231);
+  margin-top: 2rem;
+  border-radius: 2px;
 }
 
 .new-reading-text {
@@ -63,14 +79,15 @@
 .date-picker {
   font-size: 1.25rem;
   text-align: center;
-  margin-left: 30vw;
+  /* margin-left: 30vw; */
+  margin-left: 5vw;
   margin-bottom: 1rem;
   width: 40vw;
   
 }
 
 .react-datepicker {
-  margin-left: 25vw;
+  margin-left: 5vw;
 }
 
 #submit {
@@ -90,17 +107,30 @@
   width: 70%;
   min-height: 300px;
   max-height: 400px;
-  /* margin-left: 2rem; */
+  /* margin-left: 2em; */
   margin: auto;
+  display: flex;
 }
 
 .line-chart {
-  width: 70%;
-  /* margin-left: 2rem; */
+  width:75%;
+  /* margin-left: 7rem; */
   min-height: 300px;
   max-height: 400px;
   margin: auto;
 }
+
+.ag-theme-alpine {
+  width: 40vw;
+  height: 60vh;
+  margin: auto;
+}
+
+.bar-and-readings {
+  display: flex;
+  align-items: center;
+} 
+
 
 @media only screen and (max-width: 550px) {
 
@@ -125,7 +155,7 @@
   }
 
   .date-picker {
-    margin-left: 29vw;
+    margin-left: 3vw;
     margin-top: 2rem;
     margin-bottom: 2rem;
     width: 42vw;
@@ -138,11 +168,12 @@
     padding-left: 1em;
     padding-right: 1em;
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
+
   #systolic-field, #diastolic-field, #username-field, #password {
-    font-size: 2rem
+    font-size: 1.5rem
   }
 
   .form-controls {
@@ -156,15 +187,21 @@
   .bar-chart, .line-chart {
     width: 90%;
     min-height: 300px;
-    margin-left: 2rem;
+    margin-left: 2rem;    
+  }
+  
+  .ag-theme-alpine {
+    width: 60vw;
+    height: 60vh;
+    margin: auto;
   }
 
 }
 
 @media only screen and (max-width: 915px) and (min-width: 551px) {
   .date-picker {
-    margin-left: 13vw;
-    width: 65vw;
+    /* margin-left: 13vw; */
+    width: 40vw;
     font-size: 2rem;
   }
 

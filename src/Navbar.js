@@ -28,7 +28,12 @@ export default function Navbar(props) {
             <h1 className="navbar-title">My Blood Pressure Tracker</h1>
             {isLoggedIn &&
                 <div className="navbar-buttons">
-                    <Link to="/results" style={{ color: "white", textDecoration: "none" }}>My Results</Link>
+                    <div className='results-buttons'>
+                        {/* <span style={{ color: "white", textDecoration: "underline" }}>Results:</span> */}
+                        <Link to="/resultslist" style={{ color:"white", textDecoration: "none" }} className="results-list">All Readings</Link>
+                        <Link to="/results" style={{ color:"white", textDecoration: "none" }} className="results-list">Data Visualization</Link>
+
+                    </div>
                     <div className='home-logout-buttons'>
                         <Link to="/" style={{ color: "white", textDecoration: "none" }}>Home</Link>
                         <span> &ensp; | &ensp; </span>
