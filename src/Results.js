@@ -36,7 +36,7 @@ ChartJS.register(
 export default function Results(props) {
     const { token } = props
 
-    const [resultsList, setResultsList] = useState(null)
+    const [resultsList, setResultsList] = useState([])
 
     const options = {
         responsive: true,
@@ -50,7 +50,7 @@ export default function Results(props) {
             },
             title: {
                 display: true,
-                text: 'Most Recent Readings',
+                text: 'Recent Readings Bar Chart',
             },
         },
     };
@@ -69,7 +69,7 @@ export default function Results(props) {
             },
             title: {
                 display: true,
-                text: 'Latest Readings',
+                text: 'Recent Readings Line Chart',
             },
         },
     };
@@ -127,13 +127,25 @@ export default function Results(props) {
 
     return (
         <>
-        <div className="bar-and-readings">
-            <div className="bar-chart">
-                <Bar options={options} data={data} />
-            </div>
+            <div className="bar-and-readings">
+                <div className="bar-chart">
+                    {resultsList.length > 0 &&
+                        <Bar options={options} data={data} />
+                    }
+                    {resultsList.length === 0 &&
+                        <p style={{fontSize:'3rem', textAlign:'center', color:'#c40a04'}}>
+                            Please input some readings to track your results!</p>
+                    }
+
+                </div>
             </div>
             <div className="line-chart">
-                <Line options={lineOptions} data={lineData} />
+                {resultsList.length > 0 &&
+                    <Line options={lineOptions} data={lineData} />
+                }
+                {resultsList.length === 0 &&
+                    ('')
+                }
             </div>
         </>
     )

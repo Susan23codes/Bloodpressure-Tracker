@@ -14,6 +14,7 @@ export default function Registration(props) {
         setError(null)
         if (password !== confirmPass) {
             alert("Passwords don't match!")
+            
         }
         
         axios.post('http://127.0.0.1:8000/auth/users/', {
