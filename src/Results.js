@@ -1,7 +1,152 @@
+import axios from "axios"
+import moment from 'moment'
+import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+import { Bar, Line } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { formatMuiErrorMessage } from "@mui/utils";
+import { flexbox } from "@mui/system";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    ChartDataLabels
+);
 
 
-export default function Results() {
+
+
+export default function Results(props) {
+    const { token } = props
+
+    const [resultsList, setResultsList] = useState([])
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            datalabels: {
+                color: 'black'
+            },
+            title: {
+                display: true,
+                text: 'Recent Readings Bar Chart',
+            },
+        },
+    };
+
+    const lineOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                grace: '10%'
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Recent Readings Line Chart',
+            },
+        },
+    };
+
+
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/reading/',
+            {
+                headers: {
+                    Authorization: `Token ${token}`,
+                }
+            },)
+            .then(res => {
+                let results = (res.data.sort((a, b) => new Date(b.reading_time) - new Date(a.reading_time)))
+                setResultsList(results)
+                console.log(results)
+            })
+    }, [])
+
+    const data = {
+        labels: resultsList && resultsList.slice(0, 10).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:MM)')),
+        datasets: [
+            {
+                label: 'Systolic',
+                data: resultsList && resultsList.map((resultObject) => resultObject.systolic),
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+                label: 'Diastolic',
+                data: resultsList && resultsList.map((resultObject) => resultObject.diastolic),
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+            },
+        ],
+    };
+
+    const lineData = {
+        labels: resultsList && resultsList.slice(0, 15).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:MM)')),
+        datasets: [
+            {
+                label: 'Systolic',
+                data: resultsList && resultsList.map((resultObject) => resultObject.systolic),
+                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+            {
+                label: 'Diastolic',
+                data: resultsList && resultsList.map((resultObject) => resultObject.diastolic),
+                backgroundColor: 'rgba(53, 162, 235, 0.5)',
+                borderColor: 'rgb(53, 162, 235)',
+            },
+        ],
+    };
+
+
+
     return (
-        <h1>Results Page is Under Construction but will hopefully have cool data visualization with charts and graphs!</h1>
+        <>
+            <div className="bar-and-readings">
+                <div className="bar-chart">
+                    {resultsList.length > 0 &&
+                        <Bar options={options} data={data} />
+                    }
+                    {resultsList.length === 0 &&
+                        <p style={{fontSize:'3rem', textAlign:'center', color:'#c40a04'}}>
+                            Please input some readings to track your results!</p>
+                    }
+
+                </div>
+            </div>
+            <div className="line-chart">
+                {resultsList.length > 0 &&
+                    <Line options={lineOptions} data={lineData} />
+                }
+                {resultsList.length === 0 &&
+                    ('')
+                }
+            </div>
+        </>
     )
 }

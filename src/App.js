@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import NewReading from './NewReading';
 import Results from './Results';
 import Login from './Login';
+import ResultsList from './ResultsList';
 import Registration from './Registration';
 
 function App() {
@@ -66,6 +67,13 @@ function App() {
         <Route
           path="/results"
           element={<Results
+            token={token}
+          />}
+        />
+        <Route
+          path="/resultslist"
+          element={<ResultsList
+            token={token}
           />}
         />
       </Routes>

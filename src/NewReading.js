@@ -55,7 +55,7 @@ export default function NewReading(props) {
             <form id="bloodpressure-form" onSubmit={handleSubmit}>
                 <div className="form-controls">
                     <label htmlFor="systolic-field">Systolic (upper number)&ensp;</label>
-                    <input id="systolic-field" type="text" onChange={(e) => setSystolic(e.target.value)} />
+                    <input id="systolic-field" type="text" onChange={(e) => setSystolic(e.target.value)} value={systolic}/>
                 </div>
                 <div className="form-controls">
                     <label htmlFor="diastolic-field">Diastolic (lower number)&ensp;</label>
@@ -64,7 +64,7 @@ export default function NewReading(props) {
                 <p className="form-controls">Enter a date and time OR use current:</p>
                 <DatePicker
       selected={readingTime}
-      onChange={(date) => setReading_time(readingTime)}
+      onChange={(readingTime) => setReading_time(readingTime)}
       showTimeSelect
       timeFormat="HH:mm"
       timeIntervals={15}
@@ -74,7 +74,7 @@ export default function NewReading(props) {
     
     />
                 <div className="form-submit">
-                    <input id="submit" type="submit" value="Submit" />
+                    <input style={{color:"white", backgroundColor:"rgb(69, 118, 175)"}} id="submit" type="submit" value="Submit" />
                 </div>
             </form>
         </div>
