@@ -103,6 +103,23 @@
   margin-top: 2rem;
 }
 
+.select-dropdown {
+  width: 20vw;
+  margin: auto;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.average-readings {
+  border: 1px solid rgb(69, 118, 175);
+  margin-top: 20px;
+  display:flex;
+  flex-direction: column;
+  align-items:flex-start;
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
 .bar-chart {
   width: 70%;
   min-height: 300px;
@@ -118,19 +135,20 @@
   min-height: 300px;
   max-height: 400px;
   margin: auto;
+  margin-bottom: 2rem;
 }
 
 .ag-theme-alpine {
   width: 40vw;
   height: 60vh;
   margin: auto;
+  margin-bottom: 2rem;
 }
 
 .bar-and-readings {
   display: flex;
   align-items: center;
 } 
-
 
 @media only screen and (max-width: 550px) {
 
@@ -191,10 +209,18 @@
   }
   
   .ag-theme-alpine {
-    width: 60vw;
+    width: 80vw;
     height: 60vh;
     margin: auto;
   }
+
+  .select-dropdown {
+    width: 40vw;
+    margin: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
 
 }
 

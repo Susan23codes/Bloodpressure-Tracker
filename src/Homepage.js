@@ -20,7 +20,14 @@ export default function Homepage(props) {
         },
         {
             url: '/SeeResults.jpg',
-            title: 'See My Results',
+            title: 'All Readings',
+            maxWidth: '50vw',
+            width: '40vw',
+
+        },
+        {
+            url: '/graph.png',
+            title: 'Data Visualization',
             maxWidth: '50vw',
             width: '40vw',
 
@@ -30,7 +37,7 @@ export default function Homepage(props) {
 
     const ImageButton = styled(ButtonBase)(({ theme }) => ({
         position: 'relative',
-        height: 250,
+        height: 175,
         marginBottom: '20px',
         [theme.breakpoints.down('sm')]: {
             width: '70vw !important', // Overrides inline-style
@@ -108,6 +115,9 @@ export default function Homepage(props) {
                         onClick={() => {
                             if (image.title === "Log a New Blood Pressure") {
                                 navigate("/newreading")
+                            }
+                            else if (image.title === "All Readings") {
+                                navigate("/resultslist")
                             }
                             else {
                                 navigate("/results")
