@@ -15,8 +15,8 @@ import {
 } from 'chart.js';
 import { Bar, Line } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { formatMuiErrorMessage } from "@mui/utils";
-import { flexbox } from "@mui/system";
+
+
 
 ChartJS.register(
     CategoryScale,
@@ -37,8 +37,21 @@ export default function Results(props) {
     const { token } = props
 
     const [resultsList, setResultsList] = useState([])
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-    const options = {
+    function detectWidth() {
+        setWindowWidth(window.innerWidth)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', detectWidth)
+        return () => {
+            window.removeEventListener('resize', detectWidth)
+        }
+    }, [windowWidth])
+
+
+    const verticalOptions = {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
@@ -54,6 +67,25 @@ export default function Results(props) {
             },
         },
     };
+
+    const horizontalOptions = {
+        responsive: true,
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            datalabels: {
+                color: 'black'
+            },
+            title: {
+                display: true,
+                text: 'Recent Readings Bar Chart',
+            },
+        },
+    };
+
 
     const lineOptions = {
         responsive: true,
@@ -74,6 +106,8 @@ export default function Results(props) {
         },
     };
 
+
+    
 
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/reading/',
@@ -127,13 +161,17 @@ export default function Results(props) {
 
     return (
         <>
+            
             <div className="bar-and-readings">
                 <div className="bar-chart">
-                    {resultsList.length > 0 &&
-                        <Bar options={options} data={data} />
+                    {resultsList.length > 0 && windowWidth > 600 &&
+                        <Bar options={verticalOptions} data={data} />
+                    }
+                    {resultsList.length > 0 && windowWidth < 600 &&
+                        <Bar options={horizontalOptions} data={data} />
                     }
                     {resultsList.length === 0 &&
-                        <p style={{fontSize:'3rem', textAlign:'center', color:'#c40a04'}}>
+                        <p style={{ fontSize: '3rem', textAlign: 'center', color: '#c40a04' }}>
                             Please input some readings to track your results!</p>
                     }
 

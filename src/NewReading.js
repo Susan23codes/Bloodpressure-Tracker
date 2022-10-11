@@ -37,7 +37,7 @@ export default function NewReading(props) {
                 alert("Thank you for your answer!")
                 setSystolic('')
                 setDiastolic('')
-                // navigate('/')
+                setReading_time(new Date())
                 ;
 
             })
@@ -59,7 +59,7 @@ export default function NewReading(props) {
                 </div>
                 <div className="form-controls">
                     <label htmlFor="diastolic-field">Diastolic (lower number)&ensp;</label>
-                    <input id="diastolic-field" type="text" onChange={(e) => setDiastolic(e.target.value)} />
+                    <input id="diastolic-field" type="text" onChange={(e) => setDiastolic(e.target.value)} value={diastolic} />
                 </div>
                 <p className="form-controls">Enter a date and time OR use current:</p>
                 <DatePicker
