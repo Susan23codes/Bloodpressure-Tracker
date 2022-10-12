@@ -11,6 +11,7 @@ export default function ResultsList(props) {
 
     const [selectedSystolicAverage, setSelectedSystolicAverage] = useState('')
     const [selectedDiastolicAverage, setSelectedDiastolicAverage] = useState('')
+    const [rowsToAverage, setRowsToAverage] = useState('')
 
     const [rowData, setRowData] = useState();
     const [columnDefs, setColumnDefs] = useState([
@@ -53,31 +54,23 @@ export default function ResultsList(props) {
         { value: 28, label: "28-Day Average" }
     ]
 
+
     function handleChange(data) {
+        let earlierDate = new Date()
+        earlierDate.setDate(earlierDate.getDate() - data.value);
 
-        let systolicReadings = rowData.slice(0, data.value).map((rowObject) => rowObject.Systolic)
-        console.log(systolicReadings)
-
-        let systolicSum = 0
-        for (let value of systolicReadings) {
-            systolicSum += value
+        let rowsToAverage = rowData.filter(row => new Date(row.Date) > earlierDate)
+        console.log(rowsToAverage.length)
+        setRowsToAverage(rowsToAverage.length)
+        let totalSys = 0
+        let totalDi = 0
+        for (let row of rowsToAverage) {
+            totalSys += row.Systolic
+            totalDi += row.Diastolic
         }
-        console.log(systolicSum)
-        let systolicAverage = systolicSum / systolicReadings.length
-        console.log(systolicAverage)
-        setSelectedSystolicAverage(systolicAverage.toFixed(2))
-
-        let diastolicReadings = rowData.slice(0, data.value).map((rowObject) => rowObject.Diastolic)
-        console.log(diastolicReadings)
-        let diastolicSum = 0
-        for (let value of diastolicReadings) {
-            diastolicSum += value
-        }
-        console.log(diastolicSum)
-        let diastolicAverage = diastolicSum / diastolicReadings.length
-        console.log(diastolicAverage)
-        setSelectedDiastolicAverage(diastolicAverage.toFixed(2))
-
+        setSelectedSystolicAverage((totalSys / rowsToAverage.length).toFixed(2))
+        setSelectedDiastolicAverage((totalDi / rowsToAverage.length).toFixed(2))
+    
     }
 
     useEffect(() => {
@@ -113,10 +106,11 @@ export default function ResultsList(props) {
                 />
                 <div className='average-readings'>
                     {selectedSystolicAverage &&
-                    <>
-                    <p>Systolic: {selectedSystolicAverage}</p>
-                    <p>Diastolic: {selectedDiastolicAverage}</p>
-                    </>
+                        <>
+                            <p>Systolic: {selectedSystolicAverage}</p>
+                            <p>Diastolic: {selectedDiastolicAverage}</p>
+                            <p>Over {rowsToAverage} Readings</p>
+                        </>
                     }
                 </div>
             </div>
