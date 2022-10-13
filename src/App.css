@@ -72,6 +72,13 @@
   color:rgb(44, 57, 57)
 }
 
+.submission-message {
+  display: flex;
+  align-items: center;
+  padding-left: 4rem;
+  font-size: 2rem;
+}
+
 .form-controls {
   font-size: 2rem;
 }
