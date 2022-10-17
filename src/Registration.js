@@ -17,7 +17,7 @@ export default function Registration(props) {
             
         }
         
-        axios.post('http://127.0.0.1:8000/auth/users/', {
+        axios.post('https://blood-pressure-tracker.onrender.com/auth/users/', {
             username: username,
             password: password,
 
@@ -26,7 +26,7 @@ export default function Registration(props) {
             setError(null)
             console.log("got this far")
             
-            axios.post('http://127.0.0.1:8000/auth/token/login/', {
+            axios.post('https://blood-pressure-tracker.onrender.com/auth/token/login/', {
                 username: username,
                 password: password,
             },

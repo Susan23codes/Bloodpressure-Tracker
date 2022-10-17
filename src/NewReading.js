@@ -3,9 +3,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment'
 import axios from "axios"
-import { Navigate } from 'react-router-dom';
-
-
 
 
 export default function NewReading(props) {
@@ -42,9 +39,9 @@ export default function NewReading(props) {
                 setSubmitComplete(true)
                 setSystolic('')
                 setDiastolic('')
-                setReading_time(new Date())
+                // setReading_time(new Date())
                 setTimeout(() => {
-                    navigate('/results')
+                    navigate('/resultslist')
                   }, 3000)
 
             })

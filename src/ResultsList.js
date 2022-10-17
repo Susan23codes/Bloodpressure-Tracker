@@ -85,7 +85,7 @@ export default function ResultsList(props) {
                 console.log(results)
                 let newRowData = results.map(resultObject => {
                     return {
-                        Date: moment(resultObject['reading_time']).format('MM-DD-YY  (HH:MM)'),
+                        Date: moment(resultObject['reading_time']).format('MM-DD-YY  (HH:mm)'),
                         Diastolic: resultObject['diastolic'],
                         Systolic: resultObject['systolic']
                     }
