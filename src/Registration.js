@@ -14,43 +14,44 @@ export default function Registration(props) {
 
     function handleRegistrationSubmit(event) {
         event.preventDefault()
-        setRegistering(true)
         setError(null)
         if (password !== confirmPass) {
-            alert("Passwords don't match!")
+            setError("Passwords don't match!")
 
         }
+        else {
+            setRegistering(true)
 
-        axios.post('https://blood-pressure-tracker.onrender.com/auth/users/', {
-            username: username,
-            password: password,
-
-        }).then((res) => {
-            event.preventDefault()
-            setError(null)
-            console.log("got this far")
-
-            axios.post('https://blood-pressure-tracker.onrender.com/auth/token/login/', {
+            axios.post('https://blood-pressure-tracker.onrender.com/auth/users/', {
                 username: username,
                 password: password,
-            },
-            )
-                .then((res) => {
-                    const token = res.data.auth_token
-                    setAuth(username, token)
-                    setRegistering(false)
-                    navigate('/')
-                })
-                .catch((error) => {
-                    setError(error.message)
-                })
-        })
+
+            }).then((res) => {
+                event.preventDefault()
+                setError(null)
+                console.log("got this far")
+
+                axios.post('https://blood-pressure-tracker.onrender.com/auth/token/login/', {
+                    username: username,
+                    password: password,
+                },
+                )
+                    .then((res) => {
+                        const token = res.data.auth_token
+                        setAuth(username, token)
+                        setRegistering(false)
+                        navigate('/')
+                    })
+                    .catch((error) => {
+                        setError(error.message)
+                    })
+            })
+        }
     }
 
 
     return (
         <>
-            {error && <div>{error}</div>}
             {registering ? (
                 <div className='loader'>
                     <RotatingLines
@@ -77,6 +78,7 @@ export default function Registration(props) {
                     </div>
                     <div className="form-submit">
                         <input style={{ color: "white", backgroundColor: "rgb(69, 118, 175)" }} type="submit" id="submit" value="Register" />
+                        <p>{error}</p>
                     </div>
                 </form>
             )
