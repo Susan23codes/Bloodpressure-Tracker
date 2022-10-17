@@ -3,6 +3,12 @@
   margin-top: 40px !important
 }
 
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
 .navbar{
   /* height: 20vh; */
   background-color: rgb(69, 118, 175);
