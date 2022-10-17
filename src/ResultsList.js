@@ -74,7 +74,7 @@ export default function ResultsList(props) {
     }
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/reading/',
+        axios.get('https://blood-pressure-tracker.onrender.com/api/reading/',
             {
                 headers: {
                     Authorization: `Token ${token}`,
