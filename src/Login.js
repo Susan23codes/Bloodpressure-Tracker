@@ -14,7 +14,7 @@ export default function Login(props) {
             e.preventDefault()
             setError(null)
             
-            axios.post('http://127.0.0.1:8000/auth/token/login/', {
+            axios.post('https://blood-pressure-tracker.onrender.com/auth/token/login/', {
                 username: username,
                 password: password,
             },
