@@ -10,7 +10,7 @@ export default function Navbar(props) {
     const handleLogout = () => {
         axios
             .post(
-                'http://127.0.0.1:8000/auth/token/logout',
+                'https://blood-pressure-tracker.onrender.com/auth/token/logout',
                 {},
                 {
                     headers: {
