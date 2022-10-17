@@ -37,6 +37,7 @@ export default function NewReading(props) {
             })
             .then((res) => {
                 setSubmitComplete(true)
+                setSubmitClicked(false)
                 setSystolic('')
                 setDiastolic('')
                 // setReading_time(new Date())
@@ -78,16 +79,27 @@ export default function NewReading(props) {
 
                 />
                     <div className="form-submit">
+                    
                         {submitComplete ? (
                             <>
                             <div className='submission-message'>
+                                
                                 <div>Submission Complete!</div>
                                 <img src="/singleloopcheck.gif" className="checkGif" alt="gifImage" height="120"  ></img>
                             </div>
                             <div>Redirecting....</div>
                             </>
                         ) : (
-                            <input style={{ color: "white", backgroundColor: "rgb(69, 118, 175)" }} id="submit" type="submit" value="Submit" />
+                            submitClicked ? (
+                                <>
+                                <div>
+                                <input style={{ color: "white", backgroundColor: "rgb(69, 118, 175)" }} id="submit" type="submit" value="Submit" />
+                                <div> Loading... </div>
+                                </div>
+                                </>
+                                ) : (
+                                    <input style={{ color: "white", backgroundColor: "rgb(69, 118, 175)" }} id="submit" type="submit" value="Submit" />
+                                )        
                         )
                         }
                     </div>
