@@ -24,7 +24,7 @@ export default function NewReading(props) {
         console.log(moment(readingTime).format('YYYY-MM-DDTHH:mm:ss.sssZ'))
 
         setError(null)
-        axios.post('http://127.0.0.1:8000/api/reading/',
+        axios.post('https://blood-pressure-tracker.onrender.com/api/reading/',
             {
                 systolic: systolic,
                 diastolic: diastolic,
