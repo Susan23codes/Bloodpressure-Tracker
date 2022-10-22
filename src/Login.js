@@ -43,7 +43,7 @@ export default function Login(props) {
                         strokeColor="grey"
                         strokeWidth="5"
                         animationDuration="0.75"
-                        width="200"
+                        width="150"
                         visible={true}
                     />
                 </div>
