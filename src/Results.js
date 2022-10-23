@@ -124,7 +124,7 @@ export default function Results(props) {
     }, [])
 
     const data = {
-        labels: resultsList && resultsList.slice(0, 10).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:MM)')),
+        labels: resultsList && resultsList.slice(0, 10).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:mm)')),
         datasets: [
             {
                 label: 'Systolic',
@@ -140,7 +140,7 @@ export default function Results(props) {
     };
 
     const lineData = {
-        labels: resultsList && resultsList.slice(0, 15).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:MM)')),
+        labels: resultsList && resultsList.slice(0, 15).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:mm)')),
         datasets: [
             {
                 label: 'Systolic',
