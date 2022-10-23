@@ -118,7 +118,7 @@ export default function Results(props) {
             },)
             .then(res => {
                 let results = (res.data.sort((a, b) => new Date(b.reading_time) - new Date(a.reading_time)))
-                setResultsList(results)
+                setResultsList(results.reverse())
                 console.log(results)
             })
     }, [])
