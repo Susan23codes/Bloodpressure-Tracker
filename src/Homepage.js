@@ -53,6 +53,7 @@ export default function Homepage(props) {
             },
             '& .MuiTypography-root': {
                 border: '4px solid currentColor',
+
             },
 
         },
@@ -136,9 +137,10 @@ export default function Homepage(props) {
                                     position: 'relative',
                                     p: 4,
                                     pt: 2,
+                                    fontWeight: 'bold',
                                     pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
                                     '@media (max-width:915px)': {
-                                        fontSize: '3rem',
+                                        fontSize: '2rem',
                                       },
                                 }}
                             >
