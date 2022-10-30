@@ -77,7 +77,6 @@ nav li {
   padding: 0.5em;
   font-size: 1.3em;
   text-align: right;
-  margin-top: 2em;
   padding: 2em;
 }
 nav li:hover {
@@ -91,12 +90,6 @@ nav li:hover {
   cursor: pointer;
 }
 
-/* .navbar{ */
-  /* height: 20vh; */
-  /* background-color: rgb(69, 118, 175);
-  padding-bottom: 2rem;
-}  */
-
 .entire-login-form, #registration-form {
   text-align: center;
   border: 1px solid rgb(69, 118, 175);;
@@ -106,37 +99,7 @@ nav li:hover {
   border-radius: 2px;
   background-color: rgb(231, 231, 231);
 }
-
-/* .navbar-title {
-  text-align: center;
-  padding-top: 2rem;
-  color: white;
-  margin-top: 0;
-} */
-
-/* .navbar-buttons {
-  display: flex;
-  font-size: 1.25rem;
-  color: white;
-  justify-content: space-between;
-  margin: 0 3rem 0 3rem
-  /* padding-bottom: 1rem; */
-/* } */ 
-
-/* .home-logout-buttons {
-  display: flex;
-  /* border: 2px solid; */
-  /* width: 40vw;
-  justify-content: flex-end;
-  align-items: flex-end; */
-/* } */ 
-
-/* .results-buttons {
-  display: flex;
-  flex-direction: column;
-  /* border: 2px solid; */
-  /* align-items:flex-start */
-/* } */ 
+ 
 
 .form-controls, .form-submit, .new-reading-text {
   text-align: center;
@@ -259,13 +222,6 @@ nav li:hover {
     margin-top: 3rem;
   }
 
-  /* .navbar-buttons {
-    font-size: 2rem;
-  }
-
-  .navbar-title {
-    font-size: 3rem;
-  } */
 
   .date-picker {
     margin-left: 3vw;
@@ -316,12 +272,10 @@ nav li:hover {
     margin-top: 2rem;
   }
 
-
 }
 
 @media only screen and (max-width: 915px) and (min-width: 551px) {
   .date-picker {
-    /* margin-left: 13vw; */
     width: 40vw;
     font-size: 2rem;
   }
@@ -329,10 +283,6 @@ nav li:hover {
   .entire-login-form, #registration-form{
     margin-top: 7rem;
   }
-
-  /* .navbar-title {
-    font-size: 3rem;
-  } */
 }
 
 @media only screen and (min-width: 1080px) {
@@ -373,5 +323,4 @@ nav li:hover {
     margin: 0;
   }
 
-  
 }
