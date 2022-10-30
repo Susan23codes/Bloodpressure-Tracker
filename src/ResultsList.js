@@ -103,8 +103,7 @@ export default function ResultsList(props) {
                     options={selectOptions}
                     placeholder="Select an Average"
                     onChange={handleChange}
-                    onBlur={event => event.preventDefault()}
-                    touchUi={true}
+                    blurInputOnSelect={true}
                 />
                 <div className='average-readings'>
                     {selectedSystolicAverage && selectedDiastolicAverage &&
