@@ -77,6 +77,8 @@ nav li {
   padding: 0.5em;
   font-size: 1.3em;
   text-align: right;
+  margin-top: 2em;
+  padding: 2em;
 }
 nav li:hover {
   font-weight: bold;
