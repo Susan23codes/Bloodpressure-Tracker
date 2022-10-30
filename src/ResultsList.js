@@ -104,9 +104,10 @@ export default function ResultsList(props) {
                     placeholder="Select an Average"
                     onChange={handleChange}
                     onBlur={event => event.preventDefault()}
+                    touchUi={true}
                 />
                 <div className='average-readings'>
-                    {selectedSystolicAverage &&
+                    {selectedSystolicAverage && selectedDiastolicAverage &&
                         <>
                             <p>Systolic: {selectedSystolicAverage}</p>
                             <p>Diastolic: {selectedDiastolicAverage}</p>
