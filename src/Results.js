@@ -2,6 +2,7 @@ import axios from "axios"
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
+import { RotatingLines } from 'react-loader-spinner'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -38,6 +39,7 @@ export default function Results(props) {
 
     const [resultsList, setResultsList] = useState([])
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [gettingResults, setGettingResults] = useState(false)
 
     function detectWidth() {
         setWindowWidth(window.innerWidth)
@@ -107,9 +109,10 @@ export default function Results(props) {
     };
 
 
-    
+
 
     useEffect(() => {
+        setGettingResults(true)
         axios.get('https://blood-pressure-tracker.onrender.com/api/reading/',
             {
                 headers: {
@@ -119,6 +122,7 @@ export default function Results(props) {
             .then(res => {
                 let results = (res.data.sort((a, b) => new Date(b.reading_time) - new Date(a.reading_time)))
                 setResultsList(results.reverse())
+                setGettingResults(false)
                 console.log(results)
             })
     }, [])
@@ -161,20 +165,33 @@ export default function Results(props) {
 
     return (
         <>
-            
+
             <div className="bar-and-readings">
                 <div className="bar-chart">
-                    {resultsList.length > 0 && windowWidth > 600 &&
-                        <Bar options={verticalOptions} data={data} />
-                    }
-                    {resultsList.length > 0 && windowWidth < 600 &&
-                        <Bar options={horizontalOptions} data={data} />
-                    }
-                    {resultsList.length === 0 &&
-                        <p style={{ fontSize: '3rem', textAlign: 'center', color: '#c40a04' }}>
-                            Please input some readings to track your results!</p>
-                    }
-
+                    {gettingResults ? (
+                        <div className='loader'>
+                            <RotatingLines
+                                strokeColor="grey"
+                                strokeWidth="5"
+                                animationDuration="0.75"
+                                width="150"
+                                visible={true}
+                            />
+                        </div>
+                    ) : (
+                        <>
+                            {resultsList && resultsList.length > 0 && windowWidth > 600 &&
+                                <Bar options={verticalOptions} data={data} />
+                            }
+                            {resultsList && resultsList.length > 0 && windowWidth < 600 &&
+                                <Bar options={horizontalOptions} data={data} />
+                            }
+                            {!resultsList && resultsList.length === 0 &&
+                                <p style={{ fontSize: '3rem', textAlign: 'center', color: '#c40a04' }}>
+                                    Please input some readings to track your results!</p>
+                            }
+                        </>
+                        )}
                 </div>
             </div>
             <div className="line-chart">
@@ -185,6 +202,7 @@ export default function Results(props) {
                     ('')
                 }
             </div>
+            
         </>
     )
 }
