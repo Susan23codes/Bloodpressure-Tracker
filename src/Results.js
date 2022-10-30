@@ -169,7 +169,7 @@ export default function Results(props) {
             <div className="bar-and-readings">
                 <div className="bar-chart">
                     {gettingResults ? (
-                        <div className='loader'>
+                        <div className='loader-data'>
                             <RotatingLines
                                 strokeColor="grey"
                                 strokeWidth="5"
