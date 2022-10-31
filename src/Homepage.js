@@ -16,7 +16,6 @@ export default function Homepage(props) {
             maxWidth: '50vw',
             width: '40vw',
             marginBottom: '20px',
-
         },
         {
             url: '/SeeResults.jpg',
