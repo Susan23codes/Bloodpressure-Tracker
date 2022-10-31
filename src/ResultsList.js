@@ -106,7 +106,7 @@ export default function ResultsList(props) {
                     
                 />
                 <div className='average-readings'>
-                    {selectedSystolicAverage && selectedDiastolicAverage && rowsToAverage &&
+                    {selectedSystolicAverage && selectedDiastolicAverage && 
                         <>
                             <p>Systolic: {selectedSystolicAverage}</p>
                             <p>Diastolic: {selectedDiastolicAverage}</p>
