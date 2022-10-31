@@ -132,12 +132,12 @@ export default function Results(props) {
         datasets: [
             {
                 label: 'Systolic',
-                data: resultsList && resultsList.map((resultObject) => resultObject.systolic),
+                data: resultsList && resultsList.slice(0,10).reverse().map((resultObject) => resultObject.systolic),
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
                 label: 'Diastolic',
-                data: resultsList && resultsList.map((resultObject) => resultObject.diastolic),
+                data: resultsList && resultsList.slice(0,10).reverse().map((resultObject) => resultObject.diastolic),
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
             },
         ],
@@ -148,13 +148,13 @@ export default function Results(props) {
         datasets: [
             {
                 label: 'Systolic',
-                data: resultsList && resultsList.map((resultObject) => resultObject.systolic),
+                data: resultsList && resultsList.slice(0,15).reverse().map((resultObject) => resultObject.systolic),
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
             {
                 label: 'Diastolic',
-                data: resultsList && resultsList.map((resultObject) => resultObject.diastolic),
+                data: resultsList && resultsList.slice(0,15).reverse().map((resultObject) => resultObject.diastolic),
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
                 borderColor: 'rgb(53, 162, 235)',
             },
