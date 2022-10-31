@@ -42,21 +42,21 @@ export default function Navbar(props) {
 
     return (
 
-        <div class="navbar">
-            <div class="container">
-                <Link to="/" class="title"> BloodPressure<span>Tracker</span></Link>
+        <div className="navbar">
+            <div className="container">
+                <Link to="/" className="title"> BloodPressure<span>Tracker</span></Link>
                 {isLoggedIn &&
                     <>
-                        <img id="mobile-cta" class="mobile-menu" src="/Hamburger_icon.svg" alt="close icon" onClick={handleOpenNav} />
+                        <img id="mobile-cta" className="mobile-menu" src="/Hamburger_icon.svg" alt="close icon" onClick={handleOpenNav} />
                         <nav>
-                            <img id="mobile-exit" class="mobile-menu-exit" src="/close.svg" alt="close navigation" onClick={handleCloseNav} />
-                            <ul class="primary-nav">
+                            <img id="mobile-exit" className="mobile-menu-exit" src="/close.svg" alt="close navigation" onClick={handleCloseNav} />
+                            <ul className="primary-nav">
                                 <li><Link to="/newreading" onClick={handleCloseNav} style={{ color: "white", textDecoration: "none" }}>New Reading</Link></li>
                                 <li><Link to="/resultslist" onClick={handleCloseNav} style={{ color: "white", textDecoration: "none" }}>Results</Link></li>
                                 <li><Link to="/results" onClick={handleCloseNav} style={{ color: "white", textDecoration: "none" }}>Data Visualization</Link></li>
                             </ul>
 
-                            <ul class="secondary-nav">
+                            <ul className="secondary-nav">
                                 <li><Link to="/" onClick={handleCloseNav} style={{ color: "white", textDecoration: "none" }}>Home</Link></li>
                                 <li><Link to="/" onClick={() => { handleLogout(); handleCloseNav() }} style={{ color: "white", textDecoration: "none" }}>Logout</Link></li>
                             </ul>

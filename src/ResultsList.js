@@ -106,7 +106,7 @@ export default function ResultsList(props) {
                     blurInputOnSelect={true}
                 />
                 <div className='average-readings'>
-                    {selectedSystolicAverage && selectedDiastolicAverage &&
+                    {selectedSystolicAverage && selectedDiastolicAverage && rowsToAverage &&
                         <>
                             <p>Systolic: {selectedSystolicAverage}</p>
                             <p>Diastolic: {selectedDiastolicAverage}</p>
