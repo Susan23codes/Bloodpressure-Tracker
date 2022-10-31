@@ -68,8 +68,8 @@ export default function ResultsList(props) {
             totalSys += row.Systolic
             totalDi += row.Diastolic
         }
-        setSelectedSystolicAverage((totalSys / rowsToAverage.length).toFixed(2))
-        setSelectedDiastolicAverage((totalDi / rowsToAverage.length).toFixed(2))
+        setSelectedSystolicAverage((totalSys / rowsToAverage.length))
+        setSelectedDiastolicAverage((totalDi / rowsToAverage.length))
     
     }
 
@@ -103,7 +103,6 @@ export default function ResultsList(props) {
                     options={selectOptions}
                     placeholder="Select an Average"
                     onChange={handleChange}
-                    onBlur={event => event.preventDefault()}
                 />
                 <div className='average-readings'>
                     {selectedSystolicAverage && selectedDiastolicAverage && rowsToAverage &&
