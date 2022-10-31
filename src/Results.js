@@ -121,14 +121,14 @@ export default function Results(props) {
             },)
             .then(res => {
                 let results = (res.data.sort((a, b) => new Date(b.reading_time) - new Date(a.reading_time)))
-                setResultsList(results.reverse())
+                setResultsList(results)
                 setGettingResults(false)
                 console.log(results)
             })
     }, [])
 
     const data = {
-        labels: resultsList && resultsList.slice(0, 10).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:mm)')),
+        labels: resultsList && resultsList.slice(0, 10).reverse().map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:mm)')),
         datasets: [
             {
                 label: 'Systolic',
@@ -144,7 +144,7 @@ export default function Results(props) {
     };
 
     const lineData = {
-        labels: resultsList && resultsList.slice(0, 15).map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:mm)')),
+        labels: resultsList && resultsList.slice(0, 15).reverse().map((resultObject) => moment(resultObject.reading_time).format('MM-DD-YY  (HH:mm)')),
         datasets: [
             {
                 label: 'Systolic',
